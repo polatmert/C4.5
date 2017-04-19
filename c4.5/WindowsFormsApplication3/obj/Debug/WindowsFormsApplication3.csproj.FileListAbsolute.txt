@@ -1,0 +1,21 @@
+c:\users\emre\documents\visual studio 2013\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe.config
+C:\Users\fatma\Desktop\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe.config
+C:\Users\fatma\Desktop\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe
+C:\Users\fatma\Desktop\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.pdb
+C:\Users\fatma\Desktop\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csprojResolveAssemblyReference.cache
+C:\Users\fatma\Desktop\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
+C:\Users\fatma\Desktop\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.Cache
+C:\Users\fatma\Desktop\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe
+C:\Users\fatma\Desktop\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.pdb
+C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe.config
+C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe
+C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.pdb
+C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form1.resources
+C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
+C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.Cache
+C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe
+C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.pdb
+C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csprojResolveAssemblyReference.cache
+C:\Users\Mert_POLAT\Desktop\C4.5 ağaç tamamlandı\C4.5algorithm-master\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe.config
+C:\Users\Mert_POLAT\Desktop\C4.5 ağaç tamamlandı\C4.5algorithm-master\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe
+C:\Users\Mert_POLAT\Desktop\C4.5 ağaç tamamlandı\C4.5algorithm-master\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.pdb
