@@ -10,26 +10,9 @@ C:\Users\fatma\Desktop\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsAppli
 C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe.config
 C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe
 C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.pdb
-C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csprojResolveAssemblyReference.cache
+C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form1.resources
 C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
 C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.Cache
 C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe
 C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.pdb
-C:\Users\Mert_POLAT\Desktop\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe.config
-C:\Users\Mert_POLAT\Desktop\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe
-C:\Users\Mert_POLAT\Desktop\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.pdb
-C:\Users\Mert_POLAT\Desktop\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csprojResolveAssemblyReference.cache
-C:\Users\Mert_POLAT\Desktop\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form1.resources
-C:\Users\Mert_POLAT\Desktop\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
-C:\Users\Mert_POLAT\Desktop\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.Cache
-C:\Users\Mert_POLAT\Desktop\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe
-C:\Users\Mert_POLAT\Desktop\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.pdb
-C:\Users\Mert_POLAT\Desktop\semphore bitti\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe.config
-C:\Users\Mert_POLAT\Desktop\semphore bitti\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe
-C:\Users\Mert_POLAT\Desktop\semphore bitti\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.pdb
-C:\Users\Mert_POLAT\Desktop\semphore bitti\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csprojResolveAssemblyReference.cache
-C:\Users\Mert_POLAT\Desktop\semphore bitti\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form1.resources
-C:\Users\Mert_POLAT\Desktop\semphore bitti\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
-C:\Users\Mert_POLAT\Desktop\semphore bitti\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.Cache
-C:\Users\Mert_POLAT\Desktop\semphore bitti\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe
-C:\Users\Mert_POLAT\Desktop\semphore bitti\C4.5algorithm-5ce01b80fed310c6090b197f11472b77499c77b9\c4.5\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.pdb
+C:\Users\Emre\Documents\GitHub\C4.5algorithm\c4.5\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csprojResolveAssemblyReference.cache

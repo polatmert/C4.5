@@ -9,7 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.IO;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 
+//Hüseyin Emre ÖZHAN    140201062
+//Hüsnü Mert POLAT      140201001
 
 namespace WindowsFormsApplication3
 {
@@ -17,22 +21,21 @@ namespace WindowsFormsApplication3
     {
         double[] KullanilanOzellikler = new double[3];
         double BilgiPDegeri=0;
-// double [] THREADDONUSLERI = new double[9];
         //                    0  1   2  /3   4   5  / 6  7   8
         int[] THBolSinir = { 50, 60, 70, 62, 63, 64, 5, 10, 19 };
         int deneme=0;
-//  int THBOSDONGU = 9;
-        int YUZDEHATA = 3;
-
+        int YUZDEHATA =3;
+        int GloSayac = 0;
+        int[,] Dugumler = new int[100,3];
+        int[] cizimKokKarar = new int[12];
+        int KokSayac = 0, ksayac2=0;
+        static Semaphore sem = new Semaphore(3, 3);
 
         public Form1()
         {
             InitializeComponent();
         }
-        
-        
-        Semaphore sem = new Semaphore(3, 3);
-        
+
         public void BilgiHesapla(int [,]hborjinal,int satirsayisi)
         {
             double birSayi=0;
@@ -57,10 +60,9 @@ namespace WindowsFormsApplication3
 
            // MessageBox.Show("Bilgi Degeri: "+BilgiPDegeri);
         }
-        
-        private void button1_Click(object sender, EventArgs e)  
+
+        private void button1_Click(object sender, EventArgs e)
         {
-          
             int satirsayisi = 0;
             StreamReader sr;
             sr = new StreamReader("haberman.txt");
@@ -98,19 +100,15 @@ namespace WindowsFormsApplication3
             if (KullanilanOzellikler[0] == 0)
             {
                 Thread T_0A = new Thread(() => THreturn[0] = THFonksiyon1(matris, 0, satirsayisi, THBolSinir[0], 0));
-              
                 Thread T_0B = new Thread(() => THreturn[1] = THFonksiyon1(matris, 0, satirsayisi, THBolSinir[1], 1));
-               
                 Thread T_0C = new Thread(() => THreturn[2] = THFonksiyon1(matris, 0, satirsayisi, THBolSinir[2], 2));
-                
                 T_0A.Start();
-                sem.WaitOne(100);
+                sem.WaitOne(10);
                 T_0B.Start();
-                sem.WaitOne(100);
+                sem.WaitOne(10);
                 T_0C.Start();
-                sem.WaitOne(100);
-
-             
+                sem.WaitOne(10);
+               
             }
             else
             { deneme += 3; }
@@ -121,13 +119,12 @@ namespace WindowsFormsApplication3
                 Thread T_1A = new Thread(() => THreturn[3] = THFonksiyon1(matris, 1, satirsayisi, THBolSinir[3], 3));
                 Thread T_1B = new Thread(() => THreturn[4] = THFonksiyon1(matris, 1, satirsayisi, THBolSinir[4], 4));
                 Thread T_1C = new Thread(() => THreturn[5] = THFonksiyon1(matris, 1, satirsayisi, THBolSinir[5], 5));
-            
                 T_1A.Start();
-                sem.WaitOne(100);
+                sem.WaitOne(10);
                 T_1B.Start();
-                sem.WaitOne(100);
+                sem.WaitOne(10);
                 T_1C.Start();
-                sem.WaitOne(100);
+                sem.WaitOne(10);
             }else
              { deneme += 3; }
 
@@ -137,11 +134,11 @@ namespace WindowsFormsApplication3
                 Thread T_2B = new Thread(() => THreturn[7] = THFonksiyon1(matris, 2, satirsayisi, THBolSinir[7], 7));
                 Thread T_2C = new Thread(() => THreturn[8] = THFonksiyon1(matris, 2, satirsayisi, THBolSinir[8], 8));
                 T_2A.Start();
-                sem.WaitOne(100);
+                sem.WaitOne(10);
                 T_2B.Start();
-                sem.WaitOne(100);
+                sem.WaitOne(10);
                 T_2C.Start();
-                sem.WaitOne(100);
+                sem.WaitOne(10);
             }else
             { deneme += 3; }
             
@@ -153,15 +150,12 @@ namespace WindowsFormsApplication3
                  /**threadler bittiğinde bu döngüdem kurtulur, bundan sonra bütün kazançlar hesaplanmış olur*/ 
             }
             
+
             //threadlerin hesapladığı kazançların en büyük olanını seç
              int EniyiKazancIndis = EniyiHesapla(THreturn);
              int EniyiOzellikNo=EniyiKazancIndis/3;
-
-             int bolmesinirimert = THBolSinir[EniyiKazancIndis];
             
-      
-             
-          // KullanilanOzellikler[EniyiOzellikNo] = 1;//agaca eklenen ozelligi 1 yapar
+            int bolmesiniri = THBolSinir[EniyiKazancIndis];
 
             /**Dizileri böl */
            int SinKucukAdet = 0, SinBuyukAdet = 0;
@@ -175,7 +169,7 @@ namespace WindowsFormsApplication3
                 else
                 { SinBuyukAdet++; }
             }
-           
+
             int[,] SolAltDizi=new int[SinKucukAdet,4];
             int[,] SagAltDizi = new int[SinBuyukAdet,4];
             int sol=0,sag=0;
@@ -208,66 +202,88 @@ namespace WindowsFormsApplication3
             {
                 if(KullanilanOzellikler[0]==0 ||KullanilanOzellikler[1]==0 || KullanilanOzellikler[2]==0 )
                 {
-                   
-                    KullanilanOzellikler[EniyiOzellikNo] = 1;//agaca eklenen ozelligi 1 yapar
-                    if (list2index < 10000)
-                    {
-                        listBox2.Items.Add(EniyiOzellikNo).ToString();
-                        listBox2.Items.Add(bolmesinirimert).ToString();
-                        list2index++;
-                    }
+                    KullanilanOzellikler[EniyiOzellikNo] = 1;//agaca eklenen ozelligi 1 
+                   if(list2index<10000){
+                       listBox2.Items.Add(EniyiOzellikNo).ToString();
+                       listBox2.Items.Add(bolmesiniri).ToString();
+                       list2index++;
+                       Dugumler[GloSayac,0] = EniyiOzellikNo;
+                       Dugumler[GloSayac,1] = bolmesiniri;
+                       Dugumler[GloSayac,2] = -100;
+                       GloSayac++;
+                       
+                   }
+                    //Recursive
                     THler(SolAltDizi, (SolAltDizi.GetUpperBound(0) + 1));
 
-                    listBox1.Items.Add("(" + SolAltEntropi + ")sol_" + (SolAltDizi.GetUpperBound(0) + 1) + "");
+                    if (KokSayac == 0 || KokSayac == 3 || KokSayac == 6 || KokSayac == 9 || KokSayac == 12)
+                    {
+                        cizimKokKarar[ksayac2] = birikisay(SolAltDizi, SolAltDizi.GetUpperBound(0) + 1);
+                        ksayac2++;
+                    }
+                    KokSayac++;
+
+                    listBox1.Items.Add("sol" + (SolAltDizi.GetUpperBound(0) + 1) + "");
                     KullanilanOzellikler[EniyiOzellikNo] = 0;
                 }
             }
+
 
             if (SagAltEntropi == -1 && SagAltDizi.GetUpperBound(0) + 1 > 1)//homojen degilse
             {
                 if (KullanilanOzellikler[0] == 0 || KullanilanOzellikler[1] == 0 || KullanilanOzellikler[2] == 0)
                 {
-                    
                     KullanilanOzellikler[EniyiOzellikNo] = 1;//agaca eklenen ozelligi 1 yapar
                     THler(SagAltDizi, (SagAltDizi.GetUpperBound(0) + 1));
-                    if (list2index < 100000)
+                    if (list2index < 10000)
                     {
                         listBox2.Items.Add(EniyiOzellikNo).ToString();
-                        listBox2.Items.Add(bolmesinirimert).ToString();
+                        listBox2.Items.Add(bolmesiniri).ToString();
                         list2index++;
+
+                        Dugumler[GloSayac,0] = EniyiOzellikNo;
+                        Dugumler[GloSayac,1] = bolmesiniri;
+                        Dugumler[GloSayac,2] = 100;
+                        GloSayac++;
                     }
-                    listBox1.Items.Add("("+SagAltEntropi+")--sag *****" + (SagAltDizi.GetUpperBound(0) + 1) + "");
+
+                    if (KokSayac == 1 || KokSayac == 4 || KokSayac == 7 || KokSayac == 10 ||KokSayac == 13)
+                    {
+                        cizimKokKarar[ksayac2] = birikisay(SolAltDizi, SolAltDizi.GetUpperBound(0) + 1);
+                        ksayac2++;
+
+                    }
+                    KokSayac++;
+                    listBox1.Items.Add("sag" + (SagAltDizi.GetUpperBound(0) + 1) + "");
                     KullanilanOzellikler[EniyiOzellikNo] = 0;
                 }
             }
-
-
             
-
-            
-
-            //sol alta geçmek için
-            //kabul koşulunu sağlamalı-sol dizisi boş olmamalı-
-            //bütün özellikler kullanılmış olmamalı-
-            //butun ozellikler bittiyse REC çalıştırma
-
-
-
-
-
-
-          // THler(SolAltDizi, (SolAltDizi.GetUpperBound(0) + 1));
-                                  
-               
-
-         
-           
-
-
-
-           // MessageBox.Show("bittiler");
         }
 
+
+        public  int birikisay(int[,] matris, int satirsayisi)
+        {
+            double birSayi = 0;
+            double ikiSayi = 0;
+            int aaa=0;
+             while (aaa < satirsayisi)
+            {
+                if (matris[aaa, 3] == 1)
+                { birSayi++; }
+                else if (matris[aaa, 3] == 2)
+                { ikiSayi++; }
+                else
+                { MessageBox.Show("hata..sinirhesapla Fonksiyonunda"); }
+
+                aaa++;
+            }
+             if (birSayi > ikiSayi)
+                 return 1;
+             else
+                 return 2;
+
+        }
 
         private double SinirEntropiHesap(int[,] matris, int satirsayisi)
         {
@@ -282,7 +298,7 @@ namespace WindowsFormsApplication3
                 else if (matris[aaa, 3] == 2)
                 { ikiSayi++; }
                 else
-                { MessageBox.Show("hata..sinirhesapla Fonksiyonunda"); }
+                { MessageBox.Show("hata..sinirentropihesapla Fonksiyonunda"); }
 
                 aaa++;
             }
@@ -325,8 +341,6 @@ namespace WindowsFormsApplication3
         private double THFonksiyon1(int [,] matris,int Fx,int satirsayisi, int sinir,int thid)
         {
 
-//            MessageBox.Show(""+thid+"basladi");
-
             double KSayi=0,SKubir=0,SKuiki=0;
             double BSayi = 0, sBubir = 0, sBuiki=0;
 
@@ -352,39 +366,117 @@ namespace WindowsFormsApplication3
             }
            double BilgiX1= 
                 ((KSayi/satirsayisi) * (((-(SKubir/KSayi))*(Math.Log((SKubir/KSayi),2)))-(((SKuiki/KSayi)*(Math.Log((SKuiki/KSayi),2))))))
-                +
-                ((BSayi/satirsayisi) * (((-(sBubir/BSayi))*Math.Log((sBubir/BSayi), 2)) - (((sBuiki/BSayi)*Math.Log((sBuiki/BSayi), 2)))));
-           
+               +
+              ((BSayi/satirsayisi) * (((-(sBubir/BSayi))*Math.Log((sBubir/BSayi), 2)) - (((sBuiki/BSayi)*Math.Log((sBuiki/BSayi), 2)))));
 
-          
 
             deneme++;
 
-            //MessageBox.Show("" + thid + "bitti");
             return BilgiX1;
         }
 
-
-
-
-        /** private void YEDEK(string param1, int param2)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            int ii = 0;
 
-            for (ii = 0; ii < 1000000000; ii++)
+        }
+
+
+        //Ağaç Çizme Button
+        private void agacCiz_Click(object sender, EventArgs e)
+        {
+            int a=0;
+            int BasX = pictureBox1.Width, BasY = 20; ;
+            Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            Graphics g = Graphics.FromImage(bmp);
+            Bitmap bmp2 = new Bitmap(pictureBox3.Width, pictureBox3.Height);
+            Graphics g2 = Graphics.FromImage(bmp2);
+           
+
+            int mevcutX = BasX / 2;
+            int mevcutY = BasY +15;
+            g.DrawEllipse(new Pen(Color.Black, 1), mevcutX-10, BasY, 70, 40);
+            using (Font myFont = new Font("Arial", 10)) { g.DrawString("f "+Dugumler[0,0].ToString()+"", myFont, Brushes.Green, new Point(mevcutX+5, mevcutY)); }
+            using (Font myFont = new Font("Arial", 10)) { g.DrawString("-"+Dugumler[0,1].ToString(), myFont, Brushes.Green, new Point(mevcutX+ 35, mevcutY)); }
+
+            SolCiz(g, mevcutX + 10, mevcutY, 1);
+            sagagec = 1;
+            SagCiz(g, mevcutX + 40, mevcutY,GloSayac/2);
+
+
+
+            for (int i = 0; i < 7; i++) 
+            using (Font myFont = new Font("Arial", 9)) { g2.DrawString(""+cizimKokKarar[i].ToString(), myFont, Brushes.Green, new Point((i+1)*40+10, 5)); }
+
+            pictureBox1.Image = bmp;pictureBox3.Image = bmp2;
+        }
+
+        int sayac = 0;
+        int sagagec = 0;
+
+     
+
+        public void SolCiz(Graphics g,int X,int Y,int dd)
+        {
+           g.DrawLine(new Pen(Color.Red, 2), X, Y+25, X-40, Y+60);
+           g.DrawEllipse(new Pen(Color.Black, 1), X-75 ,Y+60, 60, 40);
+           string tmp = Dugumler[dd, 0].ToString();
+           using (Font myFont = new Font("Arial", 10)) { g.DrawString("f " + Dugumler[dd, 0]+"", myFont, Brushes.Green, new Point(X-65, Y+70)); }
+          using (Font myFont = new Font("Arial", 10)) { g.DrawString("-" + (Dugumler[dd, 1]).ToString(), myFont, Brushes.Green, new Point(X-45,Y+ 70)); }
+          if (dd < GloSayac )
+          {
+              if (Dugumler[dd, 2] == -100 && Dugumler[dd, 0] != Dugumler[dd - 1, 0] && sayac < 3)
+              {//sol çizgi
+                  sayac++;
+                 SolCiz(g, X - 60, Y + 80, dd + 1);
+                  sayac--;
+              }
+              else
+              {
+                  SagCiz(g, X + 60, Y - 80, dd + 1);
+              }
+          }
+          return ;
+        }
+    
+        public void SagCiz(Graphics g,int X, int Y,int dd)
+        {
+
+            g.DrawLine(new Pen(Color.Red, 2), X-5, Y + 25, X + 40, Y + 60);
+            g.DrawEllipse(new Pen(Color.Black, 1), X + 10, Y + 60, 60, 40);
+            string tmp = Dugumler[dd, 0].ToString();
+            using (Font myFont = new Font("Arial", 10)) { g.DrawString("f " + Dugumler[dd, 0]+"", myFont, Brushes.Green, new Point(X + 20, Y + 70)); }
+            using (Font myFont = new Font("Arial", 10)) { g.DrawString("-" + (Dugumler[dd, 1]).ToString(), myFont, Brushes.Green, new Point(X + 40, Y + 70)); }
+            if (dd < GloSayac)
+            {
+                if (Dugumler[dd, 2] == 100 && Dugumler[dd, 0] != Dugumler[dd - 1, 0])
                 {
-                    if (ii % 13128777 == 0)
-                    {
-                        Invoke(new MethodInvoker(
-                        delegate { listBox1.Items.Add(param1 + "__" + param2); }
-                        ));
-                        Thread.Sleep(100);
-                    }
+                    
+                    SagCiz(g, X + 60, Y -( sayac*80), dd + 1);
 
                 }
+                else
+                {
+                  if(sagagec==1) 
+                   SolCiz(g, X+60 , Y + 80, dd + 1);
+                }
+            }
+            
+            return;
 
+        }
 
-        }*/
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked==true)
+            { listBox1.Visible = true;
+            listBox2.Visible = true; 
+            }else
+                {
+                    listBox1.Visible = false;
+                    listBox2.Visible = false;
+                }
+            
+        }
 
 
     }
